@@ -1,0 +1,107 @@
+{
+  "info": {
+    "name": "Restaurant Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Menu",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/menu"
+      }
+    },
+    {
+      "name": "Add Menu Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Chicken Burger\", \"description\": \"Grilled chicken burger\", \"price\": 180, \"available\": true}"
+        },
+        "url": "http://localhost:8080/api/menu"
+      }
+    },
+    {
+      "name": "Add Table",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"tableNumber\": 1, \"capacity\": 4, \"available\": true}"
+        },
+        "url": "http://localhost:8080/api/tables"
+      }
+    },
+    {
+      "name": "Add Inventory",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"quantity\": 20, \"reorderLevel\": 5}"
+        },
+        "url": "http://localhost:8080/api/inventory/1"
+      }
+    },
+    {
+      "name": "Reserve Table",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"customerName\": \"Ankit\", \"guests\": 2, \"reservationTime\": \"2026-10-01T19:00:00\", \"restaurantTable\": {\"id\": 1}}"
+        },
+        "url": "http://localhost:8080/api/reservations"
+      }
+    },
+    {
+      "name": "Place Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"tableId\": 1, \"items\": [{\"menuItemId\": 1, \"quantity\": 2}]}"
+        },
+        "url": "http://localhost:8080/api/orders"
+      }
+    },
+    {
+      "name": "Get Orders",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/orders"
+      }
+    }
+  ]
+}
